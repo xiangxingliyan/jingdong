@@ -1,0 +1,230 @@
+/*天天低价*/
+/*a标签不敢全部用，会影响一些特定的a标签
+ */
+#everyday a:hover{
+	color: #CC0000;
+}
+#footer a:hover{
+	color: #CC0000;
+}
+#everyday{
+	width: 1210px;
+	height: 340px;
+	overflow: hidden;
+	margin: 20px auto;
+}
+#everyday .dayprice{
+	width: 900px;
+	float: left;
+	overflow: hidden;
+}
+#everyday .dayprice .mytitle{
+	height: 36px;
+}
+.dayprice .mytitle h2{
+	float: left;
+    display: inline;
+    line-height: 36px;
+    font-size: 20px;
+	}
+.dayprice .mycontent{
+	width: 900px;
+	height: 279px;
+    border: 1px solid #ddd;	
+	}
+.dayprice .mycontent ul{
+	width: 903px;
+	height: 284px;
+	overflow: hidden;
+}
+.dayprice .mycontent ul li{
+	float: left;
+	padding: 17px 10px;
+}
+.dayprice .mycontent ul .fore1{
+	width: 220px;
+	height: 245px;
+}
+.dayprice .mycontent ul .fore2,.dayprice .mycontent ul .fore3,.dayprice .mycontent ul .fore4,.dayprice .mycontent ul .fore5,.dayprice .mycontent ul .fore6,.dayprice .mycontent ul .fore7{
+	width: 200px;
+	height: 105px;
+	border-right: 1px solid #ddd;
+	border-bottom:1px solid #ddd ;
+}
+.dayprice .mycontent .day_img{
+	float: left;
+    width: 100px;
+    height: 100px;
+}
+.dayprice .mycontent .day_price{
+	float: right;
+    width: 94px;
+}
+.dayprice .mycontent .day_price .day_name{
+	height: 36px;
+    margin-bottom: 6px;
+}
+.dayprice .mycontent .day_price .day_num {
+	display: block;
+    color: #e12228;
+    font-size: 16px;
+    font-weight: 700;
+}
+.dayprice .mycontent .fore1 .day_img{
+	width: 219px;
+    height: 180px;
+    padding-left: 28px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.dayprice .mycontent .fore1 .day_price .day_name {
+   	    height: 18px;
+   }
+.dayprice .mycontent .fore1 .day_price{
+	width: 200px;
+}
+/* css3属性 ：   过渡——Transition*/
+.dayprice .mycontent img{
+	 transition: all .4s ease-out;
+} 
+/*给天天低价里面的img添加hover事件,使其闪动*/
+.dayprice .mycontent img:hover{
+	margin-left: -20px;
+}
+/*//热门晒单*/
+#everyday .hotmes{
+	width: 310px;
+	height: 320px;
+	float: left;
+}
+#everyday .hotmes .mytitle{
+	height: 36px;
+	line-height: 36px;
+}
+/*轮播图*/
+#everyday .hotmes .lunbo{
+	position: relative;
+	width: 268px;
+	height: 279px;
+	padding-left: 20px;
+	overflow: hidden;
+	border: 1px solid #ddd;
+}
+.hotmes .lunbo ul{
+	position: absolute;
+}
+.hotmes .lunbo ul li{
+	width: 266px;
+ 	height: 100px;
+    margin-bottom: 20px;
+    overflow: hidden;
+    border-bottom: 1px solid #ddd;
+ }
+.hotmes .lunbo ul li .hot_img{
+	float: left;
+	width: 80px;
+	height: 80px;
+	overflow: hidden;
+	padding-right: 20px;
+}
+.hotmes .lunbo ul li .hot_name,.hotmes .lunbo ul li .hot_word{
+	float: left;
+	width: 140px;
+	height: 30px;
+	padding: 5px;
+}
+
+
+
+    
+#footer{
+	width: 1263px;
+	margin: 0 auto;
+	height: 457px;
+}
+#footer .footer_top{
+	width: 1263px;
+	height: 276px;
+	border-bottom: 1px solid #ddd;
+}
+#footer .footer_top .slogan{
+	width: 1210px;
+	margin: 0 auto;
+	position: relative;
+    height: 54px;
+    padding: 20px 0;
+    margin-bottom: 14px;
+    background: #F5F5F5;
+}
+.footer_top .slogan ul{
+	padding-left: 75px;
+}
+.footer_top .slogan ul li{
+	float: left;
+	width: 282px;
+	height: 54px;
+
+}
+.footer_top .slogan ul .fore1{
+	background: url(../img/image/底部/footer/多快好省.png) 0 -132px no-repeat;
+}
+.footer_top .slogan ul .fore2{
+	background: url(../img/image/底部/footer/多快好省.png) 0 -197px no-repeat;
+}
+.footer_top .slogan ul .fore3{
+	background: url(../img/image/底部/footer/多快好省.png) 0 -261px no-repeat;
+}
+.footer_top .slogan ul .fore4{
+	background: url(../img/image/底部/footer/多快好省.png) 0 -321px no-repeat;
+}
+/*服务列表*/
+.footer_top .server{
+	width: 1210px;
+	margin: 0 auto;
+	position: relative;
+
+}
+.footer_top .server dl{
+	width: 200px;
+	float: left;
+}
+.footer_top .server dl dd li{
+	height: 20px;
+}
+.footer_top .server dl dt{
+	font-size: 16px;
+	padding: 8px 0;
+	font-family: "微软雅黑";
+}
+.footer_top .server .dl5{
+	width:100px;
+}
+.footer_top .server .map{
+	width: 310px;
+	height: 168px;
+	float: left;
+	background: url(../img/image/底部/footer/地图邮箱.png) 60px -145px no-repeat;
+}
+.footer_top .server .map dt,.footer_top .server .map dd{
+	padding-left: 80px;
+}
+.footer_top .server .map .jd_mes{
+	text-align: right;
+}
+
+/*footer最下方*/
+.footer_bottom{
+	width: 1210px;
+	margin: 0 auto;
+	text-align: center;
+	padding-top: 20px;
+}
+.footer_bottom a{
+	margin: 0 10px;
+}
+.footer_bottom .copyright{
+	margin: 10px 0;
+}
+.footer_bottom .end a{
+	margin: 0 5px;
+}

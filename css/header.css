@@ -1,0 +1,361 @@
+#header{
+	width: 100%;
+	height: 30px;
+	background: #f1f1f1;
+	position: relative;
+}
+#w{
+	width: 1210px;
+	margin: 0 auto;
+}
+.headerleft{
+	display: inline-block;
+}
+.headerleft li {
+	display: inline-block;
+}
+.sendTo{
+	padding-left: 5px;
+	line-height: 30px;
+	display: inline-block;
+	position: relative;
+	z-index: 13;
+}
+.jiantou{
+	position: relative;
+	top:0px;
+	left: 0;
+	display: inline-block;
+	width: 15px;
+	height: 7px;
+    overflow: hidden;
+    line-height: 30px;
+}
+.jiantou em{
+	position: absolute;
+	top:-14px;
+	left: 0;
+}
+.sendTo:hover em{
+	top:-8px;	
+}
+.address{
+	border: 1px solid #ccc;	
+	border-top: none;
+	width: 300px;
+	position: absolute;
+	left: 0px;
+	top: 30px;
+	background: #fff;
+	display: none;	
+	}
+.address a{
+	padding: 3px;
+	margin:0px 5px;
+	width: 37px;
+	display: block;
+	float: left;
+	text-align: center;
+}
+/*原来的有样式,权重不够*/
+.active{
+	background: #CC0000!important;
+	color: #fff!important;
+}
+#header .sendTo:hover{
+	background: #fff;
+}
+#header .sendTo:hover .address{
+	display: block;
+}
+.address a:hover{
+	background: #ddd;
+	color: #CC0000;
+}
+.headerRight{
+	float:right;
+}
+
+.headerRight li:hover{
+	color: #C21A21;
+}
+.headerRight li a:hover{
+	color: #C21A21;
+}
+.headerRight li{
+	float: left;
+	line-height: 30px;
+	position: relative;
+	z-index: 13;
+	padding: 0 6px;
+}
+
+.headerRight .f1{
+	margin-right: 10px;
+}
+.headerRight .f1 .register{
+	color: #CC0000;
+}
+.headerRight .f3 .myJd{
+	width: 280px;
+	padding-top: 5px;
+	position: absolute;
+	top: 30px;
+	left: -1px;
+	border: 1px solid #ddd;
+	border-top: none;
+	background: #fff;
+	display: none;
+}
+.headerRight .f3:hover{
+	background: #fff;
+}
+.headerRight .f3:hover .myJd{
+	display: block;
+}
+.f3 .myJd .box{
+	overflow: hidden;
+	width: 220px;
+}
+.f3 .myJd .headImg{
+	float: left;
+	padding-left: 10px;
+}
+.f3 .myJd .headImg img{
+	width: 60px;
+	height: 60px;
+	border-radius: 50%;
+}
+.f3 .myJd .myName{
+	float: left;
+	
+}
+.f3 .myJd .myName a{
+	font-weight: 700;
+	padding:0 8px;
+	display: block;
+}
+.f3 .myJd .advices{
+	float: left;
+	padding: 0 8px;
+}
+.f3 .myJd .box .otherlist{
+	padding:10px 0px 0px 10px;
+	overflow: hidden;
+	float: left;
+}
+.f3 .myJd .box .otherlist li{
+	width: 84px;
+	margin-right: 5px;	
+}
+
+.f3:hover em{
+	top:-8px;
+}
+.f5:hover em{
+	top:-8px;
+}
+.f6:hover em{
+	top:-8px;
+}
+.f7:hover em{
+	top:-8px;
+}
+.f8:hover em{
+	top:-8px;
+}
+.headerRight .line{
+	width: 1px;
+    height: 12px;
+    margin-top: 9px;
+    padding: 0;
+    background: #ddd;
+    overflow: hidden;
+}
+.headerRight .f5{
+	position: relative;
+	padding-left: 25px;
+}
+#header .phone{
+	position: absolute;
+	top: 5px;
+    left: 7px;
+    width: 15px;
+    height: 20px;
+    background: url(../img/image/头部/header/jd2015img.png) 0 0 no-repeat ;
+}
+#header .f5:hover{
+	background: #fff;
+}
+#header .f5:hover .codeDiv{
+	display: block;
+}
+#header .f5:hover .phone{
+	position: absolute;
+	top: 5px;
+    left: 7px;
+    width: 15px;
+    height: 20px;
+    background: url(../img/image/头部/header/jd2015img.png) 0 -25px no-repeat ;
+}
+#header .f5 .codeDiv{
+	position: absolute;
+	left: -1px;
+    width: 250px;
+    height: 195px;
+    background: url(../img/image/头部/header/手机京东-弹出.png);
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-top: none;
+    display: none;
+}
+.codeDiv .jd_client{
+	position: absolute;
+	left: 99px;
+    top: 2px;
+}
+.codeDiv .money_client{
+	position: absolute;
+	left: 98px;
+    top: 99px;
+}
+.codeDiv .new_person{
+	position: absolute;
+	left: 99px;
+    top: 23px;
+    width: 136px;
+    color: #c21a21;
+}
+.codeDiv .RichScan{
+	position: absolute;
+	left: 99px;
+    top: 118px;
+    width: 136px;
+    color: #c21a21;
+}
+.codeDiv .ios_client{
+	display: block;
+    position: absolute;
+    left: 95px;
+    top: 49px;
+    width: 56px;
+    height: 44px;
+    overflow: hidden;
+}
+.codeDiv .android_client{
+	display: block;
+    position: absolute;
+    left: 151px;
+    top: 49px;
+    width: 56px;
+    height: 44px;
+    overflow: hidden;
+}
+.codeDiv .ipad_client{
+	display: block;
+    position: absolute;
+    left: 207px;
+    top: 49px;
+    width: 43px;
+    height: 44px;
+    overflow: hidden;
+}
+.codeDiv .ios_money_client{
+	display: block;
+    position: absolute;
+    left: 93px;
+    top: 143px;
+    width: 52px;
+    height: 44px;
+    overflow: hidden;
+}
+.codeDiv .android_money_client{
+	display: block;
+    position: absolute;
+    left: 148px;
+    top: 143px;
+    width: 52px;
+    height: 44px;
+    overflow: hidden;
+}
+#header .f6 .attention_jd{
+	border: 1px solid #ddd;
+	border-top: none;
+	position: absolute;
+	left: -1px;
+	display: none;
+	background: #fff;
+}
+#header .f6:hover{
+	background: #fff;
+}
+#header .f6:hover .attention_jd{
+	display: block;
+}
+#header .f7 .serve{
+	width: 170px;
+	position: absolute;
+	left: -1px;
+	border: 1px solid #ddd;
+	border-top: none;
+	background: #fff;
+	display: none;
+}
+#header .f7 .serve h4{
+	padding-left: 9px;
+	display: block;
+}
+#header .f7 .serve li{
+	float: left;
+	padding-left: 9px;
+	width: 70px;
+}
+#header .f7 .serve .line{
+	width: 100%;
+	height: 0px;
+	border-top: 1px dotted #ccc;	
+}
+#header .f7:hover{
+	background: #fff;
+}
+#header .f7:hover .serve{
+	display: block;	
+}
+#header .f8 .web_nav{
+	position: absolute;
+	width: 1210px;
+	right: 0;
+	border: 1px solid #ddd;
+	background: #fff;
+	padding-top: 20px;
+	display: none;
+}
+#header .f8 .web_nav .nav1{
+	width: 347px;
+	padding-left: 10px;
+	border-left: none;
+}
+.f8 .web_nav dl{
+	float: left;
+	border-left: 1px solid #ddd;
+}
+.f8 .web_nav li{
+	width:72px;
+}
+.f8 .web_nav dt{
+	font-size: 14px;
+    font-weight: 700;  
+}
+#header .f8 .web_nav .nav2,#header .f8 .web_nav .nav3,#header .f8 .web_nav .nav4{
+	width: 259px;
+	padding-left: 5px;
+}
+#header .f8:hover{
+	background: #fff;
+}
+#header .f8:hover .web_nav{
+	display: block;
+	border-top: none;
+}
+
+

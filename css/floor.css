@@ -1,0 +1,675 @@
+.floor{
+	overflow: hidden;
+}
+.floor #cloths .mt{
+	width: 1210px;
+	height: 37px;
+	border-bottom: 1px solid #CC0000;
+}
+
+.floor .main_inner a {
+    display: block;
+    border-right: 1px solid #EDEDED;
+    border-bottom: 1px solid #EDEDED;
+    overflow: hidden;
+}
+.floor a:hover{
+	color: #CC0000;
+	}
+.floor #cloths {
+	width: 1210px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.floor #cloths h2{
+	overflow: hidden;
+	position: relative;
+	float: left;
+    display: inline-block;
+    line-height: 30px;
+    font-size: 20px;
+    padding-left: 40px;
+    color: #333;
+}
+.floor #cloths h2 i{
+	position: absolute;
+    top: 2px;
+    left: 0;
+    width: 21px;
+    height: 25px;
+    padding-right: 10px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    background:url(../img/image/product_home_1.0.0.png) 0 -36px no-repeat;
+}
+.floor #cloths .tab {
+	border: solid 1px #ededed;
+    border-bottom: 0 none;
+    height: 34px;
+    line-height: 34px;
+    z-index: 1;
+    float: right;
+    display: inline;
+}
+.floor #cloths .tab li{
+	float: left;
+    display: inline;
+    height: 34px;
+    position: relative;
+}
+.list{
+	border-left: solid 1px #c81623;
+    border-right: solid 1px #c81623;
+    border-top: solid 3px #c81623;
+    color: #c81623;
+}
+.floor #cloths .tab a{
+    float: left;
+    height: 34px;
+    padding: 0 16px;
+    line-height: 34px;
+    overflow: hidden;
+    background: #fff;
+
+}
+.floor #cloths .mc{
+	width: 1210px;
+	overflow: hidden;
+}
+.floor #cloths li .c_right{
+	position: absolute;
+    width: 1px;
+    background: #ccc;
+    overflow: hidden;
+    height: 14px;
+    top: 10px;
+    right: 0;
+}
+.floor .side {
+    float: left;
+    width: 330px;
+    overflow: hidden;
+    font-family: "microsoft yahei";
+}
+.floor .sideinner {
+    position: relative;
+    width: 330px;
+    background: #e5ebeb;
+    overflow: hidden;
+}
+.floor .banner {
+    position: relative;
+    height: 474px;
+}
+.floor .banner a {
+    display: block;
+    height: 475px;
+}
+#cloths .theme{
+    padding-left: 25px;
+    margin-top: -221px;
+    z-index: 1;
+}
+.floor .theme {
+    position: relative;
+    padding-left: 10px;
+    height: 92px;
+    margin-top: -237px;
+    overflow: hidden;
+    z-index: 1;
+    background: rgba(255,255,255,.5);
+}
+.floor .theme li {
+    float: left;
+    width: 98px;
+    height: 26px;
+    padding: 10px 0;
+}
+.floor .theme a {
+    float: left;
+}
+#cloths .theme li {
+    width: 100px;
+ }
+.floor .theme a {
+    float: left;
+    line-height: 26px;
+}
+.floor .theme .icon {
+    width: 26px;
+    margin-right: 5px;
+}
+.floor .theme i, #floor .theme span {
+    float: left;
+    height: 26px;
+    overflow: hidden;
+    line-height: 26px;
+}
+.floor .theme span {
+    font-size: 14px;
+    margin-right: 5px;
+}
+.floor .words {
+    position: relative;
+    height: 76px;
+    z-index: 1;
+    background: rgba(255,255,255,.7);
+}
+#cloths .words {
+    height: 128px;
+    z-index: 1;
+}
+#cloths .words li {
+    height: 96px;
+    padding-top: 16px;
+}
+.floor .words li {
+    float: left;
+    width: 135px;
+    height: 48px;
+    padding: 7px 0 0 25px;
+    overflow: hidden;
+}
+.floor .words a {
+    float: left;
+    margin-right: 10px;
+    line-height: 24px;
+}
+.floor .words .wordsred{
+	color: #CC0000;
+	}
+#cloths .sidebottom {
+    width: 328px;
+    height: 158px;
+    border: 1px solid #ededed;
+    border-left: 1px solid #f7f5ee;
+    border-top: 0;
+    overflow: hidden;
+}
+#cloths .theme .fore1 .icon{
+		background: url(../img/image/1F服饰/小图标/1F男装.png) 0 0 no-repeat;
+}
+#cloths .theme .fore2 .icon{
+		background: url(../img/image/1F服饰/小图标/1F男装.png) 0 -26px no-repeat;
+}
+#cloths .theme .fore3 .icon{
+		background: url(../img/image/1F服饰/小图标/1F男装.png) 0 -52px no-repeat;
+}
+#cloths .theme .fore4 .icon{
+		background: url(../img/image/1F服饰/小图标/1F男装.png) 0 -78px no-repeat;
+}
+#cloths .theme .fore5 .icon{
+		background: url(../img/image/1F服饰/小图标/1F男装.png) 0 -104px no-repeat;
+}
+#cloths .theme .fore6 .icon{
+		background: url(../img/image/1F服饰/小图标/1F男装.png) 0 -130px no-repeat;
+}
+
+.floor .main {
+    position: relative;
+    float: left;
+    width: 880px;
+    height: 474px;
+    overflow: hidden;
+}
+
+.floor .main_body {
+    float: left;
+    width: 660px;
+}
+.floor .main_inner li {
+    overflow: hidden;
+    font-size: 0;
+}
+#cloths .main {
+    height: 633px;
+
+}
+/*用一个main_hide控制隐藏  用main_selected控制显示*/
+.main_selected{
+	display: block;
+}
+.main_hide{
+	display: none;
+}
+#cloths .main_body{
+	 background: #ddd;
+	}
+#cloths .main_body li {
+    float: left;
+    height: 158px;
+}
+#cloths .main_body li.fore1 {
+    width: 440px;
+}
+#cloths .main_body li.fore1 {
+    width: 440px;
+}
+/*把轮播图放到中间.用定位*/
+#cloths .main_body li.fore2 {
+    width: 440px;
+    height: 159px;
+    padding-top: 316px;
+}
+#cloths .main_body li.fore3 {
+    margin-top: -158px;
+}
+#cloths .main_body li.fore3, #cloths .main_body li.fore4, #cloths .main_body li.fore5, #cloths .main_body li.fore6 {
+    float: right;
+}
+.floor .main_right {
+    float: left;
+    width: 220px;
+}
+.floor .main_right li {
+    width: 220px;
+    overflow: hidden;
+}
+#cloths .main_right li {
+    height: 158px;
+}
+#cloths .main_right li.fore3 {
+    height: 317px;
+}
+/*轮播图*/
+.floor .carousel {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 439px;
+    height: 236px;
+    overflow: hidden;
+    border-right: 1px solid #EDEDED;
+    border-bottom: 1px solid #EDEDED;
+}
+#cloths .carousel {
+    top: 158px;
+    height: 315px;
+}
+
+/*轮播的ul*/
+#cloths .carousel .carousel_list{
+	width: 3000px;
+	position: absolute;/*给ul定位.他的父元素要有个定位*/
+}
+#cloths .carousel .carousel_list li{
+	float: left;
+}
+#cloths .carousel:hover .btn{
+	display: block;
+}
+#cloths .carousel .btn{
+	background: rgba(0,0,0,0.3);
+	width: 30px;
+	height: 50px;
+	position: absolute;
+	top:50%;
+	margin-top: -25px;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+	display: none;
+}	
+#cloths .carousel .left_floor{
+	left: 0;
+}
+#cloths .carousel .right_floor{
+	right: 0;
+}
+/*轮播图的圆点*/
+#cloths .carousel .carousel_num li.active{
+	background: red;
+	cursor: pointer;
+}
+#cloths .carousel .carousel_num{
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 20px;
+}
+#cloths .carousel .carousel_num li{
+	display: inline-block;
+	margin: 0 3px;
+	width: 10px;
+	height: 10px;
+	background: #3e3e3e;
+	border-radius: 50%;
+    overflow: hidden;
+}
+
+
+/*男装*/
+.floor .cloth_list {
+    width: 890px;
+    height: 474px;
+    overflow: hidden;
+}
+.floor .cloth_list li {
+    float: left;
+    width: 160px;
+    height: 230px;
+    padding: 6px 17px 0;
+    border-bottom: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+    overflow: hidden;
+}
+
+.floor .cloth_list .cloth_img {
+    height: 140px;
+    width: 160px;
+    margin-bottom: 4px;
+    text-align: center;
+    padding-top: 15px;
+    padding-left: 25px;
+}
+.floor .cloth_list .cloth_name {
+    height: 3em;
+    margin-bottom: 3px;
+    overflow: hidden;
+}
+.floor .cloth_list .cloth_price {
+    font-size: 15px;
+    color: #E4393C;
+}
+#cloths .cloth_list li {
+    width: 185px;
+}
+/*男装下面的图片列表*/
+.floor .cloth_bottom {
+    width: 890px;
+    height: 159px;
+    overflow: hidden;
+}
+.floor .cloth_bottom li {
+    float: left;
+    width: 219px;
+    height: 158px;
+    border-bottom: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+}
+/*//2F美妆*/
+.floor .mt {
+    border-bottom: 1px solid #c81623;
+    overflow: visible;
+    position: relative;
+    height: 36px;
+}
+.floor .beauty{
+	width: 1210px;
+	margin: 0 auto;
+	position: relative;
+}
+.floor .beauty h2 {
+    position: relative;
+    padding-left: 40px;
+    color: #333;
+    float: left;
+    display: inline;
+    line-height: 30px;
+    font-size: 20px;
+}
+.floor .beauty .tab {
+    border: solid 1px #ededed;
+    border-bottom: 0 none;
+    height: 34px;
+    line-height: 34px;
+    z-index: 1;
+    float: right;
+    display: inline;
+}
+.floor .beauty .tab li {
+    float: left;
+    display: inline-block;
+    height: 34px;
+    position: relative;
+    text-align: center;
+}
+.floor .beauty .tab span {
+    position: absolute;
+    width: 1px;
+    background: #ccc;
+    overflow: hidden;
+    height: 14px;
+    top: 10px;
+    right: 0;
+}
+.floor .beauty .tab li a{
+    float: left;
+    height: 34px;
+    padding: 0 16px;
+    line-height: 34px;
+    overflow: hidden;
+    background: #fff;
+}
+.floor .beauty .mt h2 i{
+	position: absolute;
+	top:3px;
+	left: 0;
+    width: 21px;
+    height: 25px;
+    padding-right: 10px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    background:url(../img/image/product_home_1.0.0.png) 0 -38px no-repeat;
+}
+/*//左侧*/
+
+.floor .beauty .side{
+	width: 210px;
+} 
+.floor .beauty .sideinner{
+	width: 210px;
+}
+/*右侧中间部分*/
+.floor .assist {
+    position: relative;
+    z-index: 1;
+    height: 48px;
+    padding: 21px 0 0;
+    font-size: 14px;
+    line-height: 24px;
+    overflow: hidden;
+    background: rgba(255,255,255,0.7);
+}
+.floor .assist li {
+    float: left;
+    width: 180px;
+    height: 24px;
+    padding-left: 25px;
+    overflow: hidden;
+}
+
+.beauty .theme .fore1 .icon {
+    background: url(../img/image/2F个护美妆/小图标/2F美妆.png) 0 0 no-repeat;
+}
+.beauty .theme .fore2 .icon {
+    background: url(../img/image/2F个护美妆/小图标/2F美妆.png) 0 -26px no-repeat;
+}
+.beauty .theme .fore3 .icon {
+    background: url(../img/image/2F个护美妆/小图标/2F美妆.png) 0 -52px no-repeat;
+}
+.beauty .theme .fore4 .icon {
+    background: url(../img/image/2F个护美妆/小图标/2F美妆.png) 0 -78px no-repeat;
+}
+.floor .beauty .words li{
+	width: 165px;
+}
+/*右侧*/
+.floor .beauty .main{
+	width: 1000px;
+}
+/*给轮播图腾出空间*/
+.floor .beauty .main .main_inner{
+	padding-left: 340px;	
+}
+.floor .beauty .carousel {
+    width: 339px;
+    height: 473px;
+}
+.floor .beauty .carousel .carousel_list{
+	width: 3000px;
+	position: absolute;/*给ul定位.他的父元素要有个定位*/
+}
+.floor .beauty .carousel .carousel_list li{
+	float: left;
+}
+.beauty .carousel:hover .btn{
+	display: block;
+}
+.beauty .carousel .btn{
+	background: rgba(0,0,0,0.3);
+	width: 30px;
+	height: 50px;
+	position: absolute;
+	top:50%;
+	margin-top: -25px;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+	display: none;
+}	
+.beauty .carousel .left_beauty{
+	left: 0;
+}
+.beauty .carousel .right_beauty{
+	right: 0;
+}
+/*轮播图的圆点*/
+.beauty .carousel .carousel_num li.active{
+	background: red;
+	cursor: pointer;
+}
+.beauty .carousel .carousel_num{
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 20px;
+}
+.beauty .carousel .carousel_num li{
+	display: inline-block;
+	margin: 0 3px;
+	width: 10px;
+	height: 10px;
+	background: #3e3e3e;
+	border-radius: 50%;
+    overflow: hidden;
+}
+/*右侧*/
+.floor .beauty .main .main_body{
+	width: 660px;
+	float: left;
+	background: red;
+}
+.floor .beauty .main_body li {
+    float: left;
+    width: 220px;
+    height: 177px;
+}
+.floor .beauty .main_body .fore1,.floor .beauty .main_body .fore2,.floor .beauty .main_body .fore3{
+	height: 297px;
+}
+/*2楼的第二个导航栏:国际大牌*/
+.floor .beauty .cloth_list{
+	width: 1010px;
+}
+.floor .beauty .cloth_list li {
+    width: 165px;
+}
+
+/*3F楼  手机通讯
+.floor #phone .mt{
+	width: 1210px;
+	height: 37px;
+	border-bottom: 1px solid #CC0000;
+}
+.floor #phone {
+	width: 1210px;
+	margin: 0 auto;
+	overflow: hidden;
+}
+.floor #phone h2{
+	overflow: hidden;
+	position: relative;
+	float: left;
+    display: inline-block;
+    line-height: 30px;
+    font-size: 20px;
+    padding-left: 40px;
+    color: #333;
+}
+.floor #phone h2 i{
+	position: absolute;
+    top: 2px;
+    left: 0;
+    width: 21px;
+    height: 25px;
+    padding-right: 10px;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    background:url(../img/image/product_home_1.0.0.png) 0 -36px no-repeat;
+}
+.floor #phone .tab {
+	border: solid 1px #ededed;
+    border-bottom: 0 none;
+    height: 34px;
+    line-height: 34px;
+    z-index: 1;
+    float: right;
+    display: inline;
+}
+.floor #phone .tab li{
+	float: left;
+    display: inline;
+    height: 34px;
+    position: relative;
+}
+.floor #phone .tab a{
+    float: left;
+    height: 34px;
+    padding: 0 16px;
+    line-height: 34px;
+    overflow: hidden;
+    background: #fff;
+}
+.floor #phone .tab li .c_right{
+	position: absolute;
+    width: 1px;
+    background: #ccc;
+    overflow: hidden;
+    height: 14px;
+    top: 10px;
+    right: 0;
+}
+3f手机左侧
+.floor #phone .sideinner .theme{
+	height: 45px;
+}
+.floor #phone .theme .fore1 .icon{
+		background: url(../img/image/3F手机通讯/小图标/3F左手机营业厅.png) 0 0 no-repeat;
+}
+.floor #phone .theme .fore2 .icon{
+		background: url(../img/image/3F手机通讯/小图标/3F左手机营业厅.png) 0 -26px no-repeat;
+}
+.floor #phone .theme .fore3 .icon{
+		background: url(../img/image/3F手机通讯/小图标/3F左手机营业厅.png) 0 -52px no-repeat;
+}
+.floor #phone .assist li{
+	width: 133px;
+}
+.floor #phone .words li{
+		width:140px ;
+		height: 90px;
+	}
+.floor #phone .words{
+	height: 105px;
+}*/
+
+
+

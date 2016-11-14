@@ -1,0 +1,124 @@
+#logo{
+	width: 100%;
+	height: 100px;
+}
+#logo a:hover{
+	color: #cc0000;
+}
+#logo .logoMain{
+	width: 1210px;
+	margin: 0 auto;
+	position: relative;
+	z-index: 12;
+}
+.logoMain .logoImg{
+	width: 362px;
+	height: 60px;
+	padding: 20px 0;
+	float: left;
+}
+.logoMain .logoImg a{
+	display: block;
+	width: 362px;
+	height: 60px;
+	background:url(../img/image/头部/header/header-logo.png) no-repeat;
+}
+.logoMain .logo_search{
+	float: left;
+}
+.logoMain .logo_search input{
+	width:446px;
+	height: 29px;
+	margin-top: 25px;
+	border: 2px solid #CC0000;
+}
+.logoMain .logo_search button{
+	width: 82px;
+	height: 36px;
+	margin-top: 25px;
+	margin-left: -5px;
+	border: none;
+	background: #B61D1D;
+	color: #fff;
+	font-weight: 700;
+	font-size: 16px;
+}
+ .logoMain .search_bottom{
+ 	float: left;
+ 	padding-top: 10px;
+ 	overflow: hidden;
+ }
+ .logoMain .search_bottom a {
+ 	padding: 3px;
+ }
+ .logoMain .search_bottom .search_first{
+  	color:#C21A21;
+  }
+ .logoMain .shopCar{
+ 	float: right;
+ 	width: 75px;
+    height: 34px;
+    position: absolute;
+    right: 60px;
+    top:25px;
+    padding: 0 28px 0 36px;
+    text-align: center;
+    line-height: 34px;
+    border: 1px solid #ddd;
+ }
+ .logoMain .shopCar .shopmes{
+ 	position: absolute;
+ 	padding: 10px 15px;
+ 	width: 278px;
+ 	top: 35px;
+ 	left: -170px;
+ 	border: 1px solid #CCCCCC;
+ 	display: none;
+ }
+ .logoMain .shopCar .shopmes .nogoods{
+ 	padding-left: 30px;
+    height: 49px;
+    line-height: 49px;
+    overflow: hidden;
+    color: #999;
+ 	}
+ .logoMain .shopCar .shopmes .nogoods b{
+ 	float: left;
+    width: 56px;
+    height: 49px;
+    background: url(../img/image/头部/header/nogoods.png) no-repeat ;
+ }
+ .logoMain .shopCar:hover .shopmes{
+  	display: block;
+  	background: #fff;
+  }
+ .logoMain .shopCar .car_right{
+ 	position: absolute;
+ 	top: 1px;
+ 	right: 9px;
+    width: 10px;
+    height: 40px;
+    font-size: 16px;
+    overflow: hidden;
+ }
+ .logoMain .shopCar .car_left{
+ 	position: absolute;
+ 	top: 9px;
+    left: 18px;
+    width: 18px;
+    height: 16px;
+    background: url(../img/image/头部/header/jd2015img.png) 0 -58px no-repeat;
+ }
+ .logoMain .shopCar .car_count{
+ 	position: absolute;
+    top: -4px;
+    left: 104px;
+    display: inline-block;
+    padding: 1px 2px;
+    font-size: 12px;
+    line-height: 12px;
+    color: #fff;
+    background-color: #c81623;
+    border-radius: 7px 7px 7px 0;
+    text-align: center;
+ }

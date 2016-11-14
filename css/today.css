@@ -1,0 +1,213 @@
+
+#today{
+	margin: 10px 0 20px;	
+}
+#today .w{
+	width: 1210px;
+	margin: 0 auto;
+	position: relative;
+}
+#today .today_left{
+	float: left;
+    width: 210px;
+    height: 151px;
+}
+.today_left a{
+	display: block;
+	width: 210px;
+	height: 151px;
+	background: url(../img/image/头部/金秋风暴.png)  no-repeat;
+}
+.today_right{
+	position: relative;
+	width: 1000px;
+	height: 164px;
+	float: left;
+	overflow: hidden;
+}
+.today_right div{
+	float: left;
+	width: 249px;
+}
+.today_right ul{
+	width: 6000px;
+	height: 164px;
+	position: absolute;
+}
+.today_right ul li{
+	float: left;
+}
+.today_right:hover .btn{
+	display: block;
+}
+.today_right .btn{
+	background: rgba(0,0,0,0.3);
+	width: 30px;
+	height: 50px;
+	position: absolute;
+	top:50%;
+	margin-top: -25px;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	font-size: 20px;
+	cursor: pointer;
+	display: none;
+}	
+.today_right .left{
+	left: 0;
+}
+.today_right .right{
+	right: 0;
+}
+
+/*猜你喜欢*/
+#related a:hover{
+	color: #CC0000;
+}
+#related {
+	overflow: hidden;
+	width: 1210px;
+	height: 269px;
+}
+#related .mt{
+	width: 1210px;
+	height: 36px;
+}
+#related .mt h3{
+	float: left;
+	color: #333;
+    display: inline;
+    line-height: 36px;
+    font-size: 20px;
+	width: 300px;
+	background: url(../img/image/头部/header/guessyou.png) no-repeat 85px -90px;
+}
+#related .mt a:hover{
+	color: #cc0000;
+	background-position: -310px -30px;
+}
+#related .mt a{
+	float: right;
+	width: 70px;
+	height: 20px;
+	margin-top: 8px;
+	background: url(../img/image/头部/header/guessyou.png) no-repeat -310px -5px;
+}
+#related .mcontent ul {
+	height: 210px;
+	padding-top: 20px;
+	border: 1px solid #ddd;
+}
+#related .mcontent ul li{
+	width: 200px;
+	float: left;
+}
+
+.mcontent ul li .mc_img {
+	text-align: center;
+	padding:  0 30px;
+}
+.mcontent ul li .mc_word{
+	padding:  0 30px;
+	border-right: 1px solid #ddd;
+}
+.mcontent ul li:last-child .mc_word{
+	border-right: none;
+}
+.mcontent ul li .mc_word .price a{
+	color: #cc0000;
+    font-size: 18px;
+}
+.mcontent .car_btn a{
+	display: inline-block;
+    height: 20px;
+    line-height: 20px;
+    padding: 0 20px;
+    border: 1px solid #999;
+    color: #666;
+    text-align: center;
+    border-radius: 3px;
+}
+
+/*京东生活*/
+#jd_quality h2{
+	line-height: 36px;
+	margin-top: 20px;
+}
+#jd_quality .quality_content{
+		height: 405px;
+	    border: 1px solid #ededed;
+	    overflow: hidden;
+	}
+.quality_content .qc1{ 
+	width: 404px;
+	height: 100%;
+	float: left;
+}
+
+.quality_content .qc2{ 
+	width: 229px;
+	height: 100%;
+	float: left;
+}
+.quality_content .qc3{ 
+	width: 404px;
+	height: 100%;
+	float: left;
+}
+.quality_content .qc4{ 
+	width: 171px;
+	height: 100%;
+	float: left;
+}
+.quality_content .qc1 .ctop{
+	position: relative;
+    display: block;
+    width: 403px;
+    height: 246px;
+    border-bottom: 1px solid #ededed;
+    border-right: 1px solid #ededed;
+    overflow: hidden;
+}
+
+.quality_content p{
+	height: 40px;
+	margin:0 20px;
+	line-height: 40px;
+	font-size: 16px;
+	color: #333;
+	font-weight: 800;
+	text-align: center;
+	border-bottom: 1px dashed #ddd;
+}
+.quality_content .qc1 .cleft,.quality_content .qc1 .cright{
+	float: left;
+    width: 200px;
+    height: 158px;
+}
+.quality_content .qc3 .qc3_left,.quality_content .qc3 .qc3_right{
+	float: left;
+    width: 200px;
+    height: 158px;
+}
+.quality_content .qc4 li{
+	float: left;
+	border-bottom: 1px dashed #e0e0e0;
+	width: 85px;
+}
+.little_banner{
+	width: 1210px;
+	height: 110px;
+	overflow: hidden;
+}
+.little_banner img{
+	float: left;
+	overflow: hidden;
+}
+
+/*右边购物车的img样式*/
+.body_car_img{
+	width: 50px;
+
+}

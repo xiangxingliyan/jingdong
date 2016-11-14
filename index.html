@@ -1,0 +1,1306 @@
+<!DOCTYPE html>
+		<!--
+			作者：1028997332@qq.com
+			时间：
+			描述：
+			一、使用JQ实现cookies：
+				参考教程：http://www.jb51.net/article/44557.htm
+				1、引入jQuery与jQuery.Cookie.js插件。
+						
+				2、$.cookie("name", $(":radio[checked]").val(), {path: "/", expiress: 7})
+					第一个参数：要设置的cookies名称
+					第二个参数：对应的值
+					第三个参数：option参数  {路径："",日期：7,...}
+							路径  cookie值保存的路径，默认与创建页路径一致。
+							domin: cookie域名属性，默认与创建页域名一样。这个地方要相当注意，跨域的概念，如果要主域名二级域名有效则要设置".xxx.com"
+							secrue:一个布尔值，表示传输cookie值时，是否需要一个安全协议。
+				3、读取cookie值　$.cookie(cookieName)
+				4、删除cookie，通过传递null作为cookie的值即可：$.cookie('the_cookie', null);
+				3、切记：cookies中的name不能一致，会覆盖
+		-->
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>		
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/logo.css"/>
+		<link rel="stylesheet" type="text/css" href="css/nav.css"/>
+		<link rel="stylesheet" type="text/css" href="css/banner.css"/>
+		<link rel="stylesheet" type="text/css" href="css/today.css"/>
+		<link rel="stylesheet" type="text/css" href="css/floor.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		<link rel="stylesheet" type="text/css" href="css/stair.css"/>
+		<link rel="stylesheet" type="text/css" href="css/shop_car.css"/>
+		
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+	<!--	<script src="js/header.js" type="text/javascript" charset="utf-8"></script>-->
+		<script src="js/nav.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/banner.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/todays.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/floor.js" type="text/javascript" charset="utf-8"></script>
+<!--不能存在或导入两个相同的js文件，不然轮播图有影响-->
+		<script src="js/stair.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/shopcar.js" type="text/javascript" charset="utf-8"></script>
+	<!--必须在jq文件下方，因为他是顺序执行的-->	
+		<!--cookies-->
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/indexcookie.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/category_list.js" type="text/javascript" charset="utf-8"></script>
+		
+		
+	<!--load方法导入header.html-->
+		<script type="text/javascript">
+				$(function(){
+					$('#indexhead').load("header.html",function(res,status){
+					console.log(status);
+					//需要写这句话才能导入js文件
+						var script = document.createElement('script');
+						script.src = "js/header.js";
+						$('body').append(script);
+				});
+			})	
+		</script>
+	<!--load方法导入footer.html-->
+		<script type="text/javascript">
+				$(function(){
+					$('#indexfoot').load("footer.html",function(res,status){
+					console.log(status);
+					//需要写这句话才能导入js文件
+						var script = document.createElement('script');
+						script.src = "js/footer.js";
+						$('body').append(script);
+					});
+				})
+		</script>
+	</head>
+	<body>
+		<!--header-->
+		<div id="indexhead">
+			<!--通过load导入分离的html-->
+		</div>
+		<!--logo-->
+		<div id="logo">
+			
+			<div class="logoMain">
+				<div class="logoImg">
+					<a href="#"></a>
+				</div>
+				
+				<div class="logo_search">
+					<input type="text" name="" id="" placeholder="数码相机" />
+					<button>搜索</button>
+				</div>
+				<div class="search_bottom">
+					<a href="#" class="search_first">手机钜惠</a>
+					<a href="#">送扫地机</a>
+					<a href="#">农用物资</a>
+					<a href="#">299减60</a>
+					<a href="#">萌宠钜惠</a>
+					<a href="#">电子猫眼</a>
+					<a href="#">棉服男</a>
+					<a href="#">1元专享</a>
+					<a href="#">华为5</a>
+				</div>
+				<div class="shopCar">
+					<i class="car_count">0</i>
+					<i class="car_left"></i>
+					<a href="shopcar.html">我的购物车</a>
+					<i class="car_right">&gt;</i>
+					<div class="shopmes">
+						<div class="nogoods"><b></b>购物车中还没有商品，赶紧选购吧！</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+		<!--nav导航-->
+		<div id="nav">
+			<div class="nav_main">
+				<!--商品分类-->
+				<div class="classify">
+					<dl>
+						<dt class="allshop"><a href="#">全部商品分类</a></dt>
+						<dd>
+							<!--类别-->
+							<div class="category">
+								<ul class="category_list">
+									<li class="list1">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+										<!--//弹出框-->
+										<div class="electric">
+											<div class="ele1">
+												<!--上方的标题-->
+											</div>									
+												<div class="ele1_content">
+													<!--内容-->
+													<!--<dl>
+														
+													</dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+							
+									</li>
+									<li  class="list2">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+																			<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li  class="list3">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+																			<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li >
+									<li  class="list4">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+																			<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list5">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+																			<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li  class="list6">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+																			<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list7">
+										
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+																			<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list8">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+																			<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list9">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+										<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list10">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+										<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list11">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+										<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list12">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+										<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list13">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+										<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list14">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+										<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+									<li class="list15">
+										<!--左侧大标题通过json获得-->
+										<i class="list_right">></i>
+										<div class="electric">
+											<div class="ele1">
+												
+											</div>									
+												<div class="ele1_content">
+													<!--<dl></dl>-->
+												</div>
+											
+												<div class="adright">
+													<img src="img/image/导航-全部商品分类/1.jpg"/>
+													<img src="img/image/导航-全部商品分类/2.jpg"/>
+													<img src="img/image/导航-全部商品分类/3.jpg"/>
+													<img src="img/image/导航-全部商品分类/4.jpg"/>
+													<img src="img/image/导航-全部商品分类/5.jpg"/>
+													<img src="img/image/导航-全部商品分类/6.jpg"/>
+													<img src="img/image/导航-全部商品分类/7.jpg"/>
+													<img src="img/image/导航-全部商品分类/8.jpg"/>
+													<img src="img/image/导航-全部商品分类/9.jpg"/>
+													<img src="img/image/导航-全部商品分类/10.jpg"/>
+												</div>
+											</div>
+									</li>
+								</ul>
+							</div>
+						</dd>
+					</dl>
+				</div>
+				<div class="nav_right">
+					<ul class="nav_right_list">
+						<li><a href="#">服装城</a></li>
+						<li><a href="#">美妆馆</a></li>
+						<li><a href="#">京东超市</a></li>
+						<li><a href="#">生鲜</a></li>
+						<li><a href="#">全球购</a></li>
+						<li><a href="#">闪购</a></li>
+						<li><a href="#">团购</a></li>
+						<li><a href="#">拍卖</a></li>
+						<li><a href="#">金融</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<!--banner-->
+		<div class="banner">
+				<div class="imglist">
+					<a href="#"><img src="img/image/头部/top的轮播图/top1.jpg" class="on"/></a>
+					<a href="#"><img src="img/image/头部/top的轮播图/top2.jpg" /></a>
+					<a href="#"><img src="img/image/头部/top的轮播图/top3.jpg"/></a>
+					<a href="#"><img src="img/image/头部/top的轮播图/top4.jpg"/></a>
+					<a href="#"><img src="img/image/头部/top的轮播图/top5.jpg"/></a>
+					<a href="#"><img src="img/image/头部/top的轮播图/top6.jpg"/></a>
+					<ul class="banner_num">
+						<li class="active">1</li>
+						<li>2</li>
+						<li>3</li>
+						<li>4</li>
+						<li>5</li>
+						<li>6</li>
+					</ul>
+				<div class="btn leftBtn">&lt;</div>
+				<div class="btn rightBtn">&gt;</div>		
+			</div>
+			<!--京东快报-->
+			<div class="w">
+				<div class="jd_news">
+					<div class="mt">
+						<h2><a href="#">京东快报</a></h2>
+						<div class="more">
+							<a href="#">更多  ></a>
+						</div>
+					</div>
+					<div class="mc">
+						<ul>
+							<li><a href="#"><span>[特惠]</span>每天送净化器，逢十秒杀GO！</a></li>
+							<li><a href="#"><span>[公告]</span>因广州图书仓搬仓升级配送延迟</a></li>
+							<li><a href="#"><span>[特惠]</span>每日享折扣 京东品质游</a></li>
+							<li><a href="#"><span>[公告]</span>“放心肉” 就在京东生鲜</a></li>
+							<li><a href="#"><span>[特惠]</span>奶粉2段 首购5折</a></li>
+						</ul>
+				
+				</div>
+				<div class="life">
+					<div class="life_list">
+						<ul>
+							<li class="life1"><a href="#"><i class="life_top"></i>话费</a></li>
+							<li class="life2"><a href="#"><i class="life_top"></i>机票</a></li>
+							<li class="life3"><a href="#"><i class="life_top"></i>电影票</a></li>
+							<li class="life4"><a href="#"><i class="life_top"></i>游戏</a></li>
+							<li class="life5"><a href="#"><i class="life_top"></i>彩票</a></li>
+							<li class="life6"><a href="#"><i class="life_top"></i>加油卡</a></li>
+							<li class="life7"><a href="#"><i class="life_top"></i>酒店</a></li>
+							<li class="life8"><a href="#"><i class="life_top"></i>火车票</a></li>
+							<li class="life9"><a href="#"><i class="life_top"></i>众筹</a></li>
+							<li class="life10"><a href="#"><i class="life_top"></i>理财</a></li>
+							<li class="life11"><a href="#"><i class="life_top"></i>礼品卡</a></li>
+							<li class="life12"><a href="#"><i class="life_top"></i>白条</a></li>
+						</ul>
+					</div>
+					<!--京东隐藏-->
+					<!--<div class="life_hide">
+						<ul>
+							<li></li>
+							<li></li>
+							<li></li>
+							<li></li>
+						</ul>
+					</div>-->
+				</div>
+				<div class="life_bottom_ad">
+						<a href="#"><img src="img/image/京东快报bottom.jpg"/></a>
+				</div>
+			</div>
+		</div>
+				
+	</div>
+		
+		<!--今日推荐-->
+		<div id="today">
+			<div class="w">
+				<div class="today_left">
+					<a href="#"></a>
+				</div>
+				<!--轮播图-->
+				<div class="today_right">
+					<ul>
+						<li class="today1">
+							<div class="img1"><a href="#"><img src="img/image/头部/top-猜你喜欢-上面的轮播图/1.jpg"/></a></div>
+							<div class="img2"><a href="#"><img src="img/image/头部/top-猜你喜欢-上面的轮播图/2.jpg"/></a></div>
+							<div class="img3"><a href="#"><img src="img/image/头部/top-猜你喜欢-上面的轮播图/3.jpg"/></a></div>
+							<div class="img4"><a href="#"><img src="img/image/头部/top-猜你喜欢-上面的轮播图/4.jpg"/></a></div>
+						</li>
+						<li class="today2">
+							<div class="img1"><a href="#"><img src="img/image/头部/top-猜你喜欢-上面的轮播图/5.jpg"/></a></div>
+							<div class="img2"><a href="#"><img src="img/image/头部/top-猜你喜欢-上面的轮播图/6.jpg"/></a></div>
+							<div class="img3"><a href="#"><img src="img/image/头部/top-猜你喜欢-上面的轮播图/7.jpg"/></a></div>
+							<div class="img4"><a href="#"><img src="img/image/头部/top-猜你喜欢-上面的轮播图/8.jpg"/></a></div>
+						</li>
+						
+					</ul>
+					<div class="btn left">&lt;</div>
+						<div class="btn right">&gt;</div>
+				</div>
+			<!--猜你喜欢-->
+			<div id="related">
+					<div class="mt">
+						<h3>猜你喜欢</h3>
+						<a href="#">换一批</a>
+					</div>
+					<div class="mcontent">
+						<ul>
+							<li>
+								<div class="mc_img"><a href="#"><img src="img/image/头部/top-猜你喜欢-电脑/1.jpg"/></a></div>
+								<div class="mc_word">
+									<div class="name">
+										<a href="#">【京东超市】洗颜专科 柔澈泡沫 洁面乳   </a>
+									</div>
+									<div class="price">
+										<a href="#">￥48.00</a>
+									</div>
+									<!--加入购物车按钮-->
+									<div class="car_btn">
+										<a href="shopcar.html">加入购物车</a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="mc_img"><a href="#"><img src="img/image/头部/top-猜你喜欢-电脑/2.jpg"/></a></div>
+								<div class="mc_word">
+									<div class="name">
+										<a href="#">金士顿（Kingston）DT SE9H 32GB 金属U盘  </a>
+									</div>
+									<div class="price">
+										<a href="#">￥58.00</a>
+									</div>
+									<div class="car_btn">
+										<a href="#">加入购物车</a>
+									</div>
+								</div>
+							
+							</li>
+							<li>
+								<div class="mc_img"><a href="#"><img src="img/image/头部/top-猜你喜欢-电脑/3.jpg"/></a></div>
+								<div class="mc_word">
+									<div class="name">
+										<a href="#">【京东自营】小米（XIAOMI）平板电脑2  </a>
+									</div>
+									<div class="price">
+										<a href="#">￥999.00</a>
+									</div>
+									<div class="car_btn">
+										<a href="shopcar.html">加入购物车</a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="mc_img"><a href="#"><img src="img/image/头部/top-猜你喜欢-电脑/4.jpg"/></a></div>
+								<div class="mc_word">
+									<div class="name">
+										<a href="#">【限量爆款直降 仅49.9！厂家直供】新款 </a>
+									</div>
+									<div class="price">
+										<a href="#">￥238.00</a>
+									</div>
+									<div class="car_btn">
+										<a href="shopcar.html">加入购物车</a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="mc_img"><a href="#"><img src="img/image/头部/top-猜你喜欢-电脑/5.jpg"/></a></div>
+								<div class="mc_word">
+									<div class="name">
+										<a href="#">德芙Dove抹茶曲奇白巧克力(碗装)234g </a>
+									</div>
+									<div class="price">
+										<a href="#">￥45.00</a>
+									</div>
+									<div class="car_btn">
+										<a href="shopcar.html">加入购物车</a>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="mc_img"><a href="#"><img src="img/image/头部/top-猜你喜欢-电脑/6.jpg"/></a></div>
+								<div class="mc_word">
+									<div class="name">
+										<a href="#">Apple iPad Pro 平板电脑 9.7 英寸（32G  </a>
+									</div>
+									<div class="price">
+										<a href="#">￥4388.00</a>
+									</div>
+									<div class="car_btn">
+										<a href="shopcar.html">加入购物车</a>
+									</div>
+								</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+						<!--品质生活-->
+				<div id="jd_quality">
+					<h2>京东 · 品质生活</h2>
+					<div class="quality_content">
+						<div class="qc1">
+							<a href="#" class="ctop">
+								<p>新发现</p>
+								<div class="cimg">
+									<img src="img/image/头部/top-京东-品质生活/1.jpg"/>
+								</div>
+							</a>
+							<a href="#" class="cleft">
+								<img src="img/image/头部/top-京东-品质生活/4.jpg"/>
+							</a>
+							<a href="#" class="cright">
+								<img src="img/image/头部/top-京东-品质生活/5.jpg"/>
+							</a>
+						</div>
+						<div class="qc2">
+							<a href="#" class="qc1_top">
+								<p>好东西</p>
+								<div class="cimg">
+									<img src="img/image/头部/top-京东-品质生活/2.jpg"/>
+								</div>
+							</a>
+							<a href="#">
+								<img src="img/image/头部/top-京东-品质生活/6.jpg"/>
+							</a>
+						</div>
+						<div class="qc3">
+							<a href="#" class="qc1_top">
+								<p>品牌街</p>
+								<div class="cimg">
+									<img src="img/image/头部/top-京东-品质生活/3.jpg"/>
+								</div>
+							</a>
+							<a href="#" class="qc3_left">
+								<img src="img/image/头部/top-京东-品质生活/7.png"/>
+							</a>
+							<a href="#" class="qc3_right">
+								<img src="img/image/头部/top-京东-品质生活/8.jpg"/>
+							</a>
+						</div>
+						<div class="qc4">
+							<ul>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/1.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/2.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/3.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/4.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/5.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/6.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/7.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/8.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/9.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/10.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/11.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/12.jpg"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/13.png"/></a></li>
+								<li><a href="#"><img src="img/image/头部/top-京东-品质生活/京东-品质生活-right/14.jpg"/></a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="little_banner">
+					<a href="#"><img src="img/image/头部/top-品质生活下方的banner/1.png"/></a>
+					<a href="#"><img src="img/image/头部/top-品质生活下方的banner/2.png"/></a>
+					<a href="#"><img src="img/image/头部/top-品质生活下方的banner/3.jpg"/></a>
+				</div>
+			</div>
+		</div>
+		
+		<!--楼层1-12F-->
+		<div class="floor">
+			<!--1F服装-->
+			<div id="cloths">
+				<div class="mt">
+					<h2><i class="icon_stairs">1F</i>服装鞋包</h2>
+					<ul class="tab">
+						<li class="tab_li1 list"><a href="#" >大牌</a><span class="c_right">◆</span></li>
+						<li class="tab_li2"><a href="#">男装</a><span class="c_right">◆</span></li>
+						<li class="tab_li3"><a href="#">女装</a><span  class="c_right">◆</span></li>
+						<li class="tab_li4"><a href="#">鞋靴</a><span  class="c_right">◆</span></li>
+						<li class="tab_li5"><a href="#">箱包</a><span  class="c_right">◆</span></li>
+						<li class="tab_li6"><a href="#">内衣配饰</a><span class="c_right">◆</span></li>
+						<li class="tab_li7"><a href="#">珠宝首饰</a><span class="c_right">◆</span></li>
+						<li class="tab_li8"><a href="#">奢品礼品</a><span class="c_right">◆</span></li>
+						<li class="tab_li9"><a href="#">奢华腕表</a><span class="c_right">◆</span></li>
+					</ul>
+				</div>
+				<div class="mc">
+					<div class="side">
+						<div class="sideinner">
+							<div class="banner">
+								<a href="#">
+									<img src="img/image/1F服饰/1F服装鞋包/1F-left1.jpg"/>
+								</a>
+								
+							</div>
+							<ul class="theme">
+								<li class="fore1"><a href="#"><i class="icon"></i><span>男装</span></a></li>
+								<li class="fore2"><a href="#"><i class="icon"></i><span>女装</span></a></li>
+								<li class="fore3"><a href="#"><i class="icon"></i><span>内衣</span></a></li>
+								<li class="fore4"><a href="#"><i class="icon"></i><span>鞋靴</span></a></li>
+								<li class="fore5"><a href="#"><i class="icon"></i><span>箱包</span></a></li>
+								<li class="fore6"><a href="#"><i class="icon"></i><span>奢侈品</span></a></li>
+							</ul>
+							<ul class="words">
+								<li class="fore1">
+									<a href="#" class="wordsred">潮流女装</a>
+									<a href="#">丝巾</a>
+									<a href="#">服装城</a>
+									<a href="#">品质男鞋</a>
+									<a href="#">时尚女鞋</a>
+									<a href="#" class="wordsred">精品女装</a>
+									<a href="#">舒适睡衣</a>
+									<a href="#">奢侈品</a>
+								</li>
+								<li class="fore2">
+									<a href="#">菩提手串</a>
+									<a href="#" class="wordsred">水晶手链</a>
+									<a href="#">时尚女包</a>
+									<a href="#">精品男包</a>
+									<a href="#">维氏手表</a>
+									<a href="#" class="wordsred">奢品名表</a>
+									<a href="#">腕表众筹</a>
+									<a href="#">智能手表</a>
+								</li>
+							</ul>
+						</div>
+						<div class="sidebottom">
+							<a href="#"><img src="img/image/1F服饰/1F服装鞋包/1F-left2.jpg"/></a>
+						</div>
+					</div>
+					<!--1F大牌-->
+					<div class="main main_selected">
+						<div class="main_inner">
+							<ul class="main_body">
+								<li class="fore1"><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/center1.jpg"/></a></li>
+								<li class="fore2"><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/center3.jpg"/></a></li>
+								<li class="fore3"><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/right1.jpg"/></a></li>
+								<li class="fore4"><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/right2.jpg"/></a></li>
+								<li class="fore5"><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/right3.jpg"/></a></li>
+								<li class="fore6"><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/right4.jpg"/></a></li>
+							</ul>
+							<ul class="main_right">
+								<li class="fore1"><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/right5.jpg"/></a></li>
+								<li class="fore2"><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/right6.jpg"/></a></li>
+								<li class="fore3"><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/right7.jpg"/></a></li>
+							</ul>
+						</div>
+						<!--轮播图开始-->
+						<div class="carousel">
+							<div class="listbox">
+								<ul class="carousel_list">
+									<li><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/大牌-center2-轮播/1.jpg"/></a></li>
+									<li><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/大牌-center2-轮播/2.jpg"/></a></li>
+									<li><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/大牌-center2-轮播/3.jpg"/></a></li>
+									<li><a href="#"><img src="img/image/1F服饰/1F服装鞋包/大牌/大牌-center2-轮播/4.jpg"/></a></li>
+								</ul>
+								<ul class="carousel_num">
+									<li class="active"></li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul>
+								<div class="btn left_floor">&lt;</div>
+								<div class="btn right_floor">&gt;</div>
+							</div>
+						</div>
+						<!--轮播图结束-->
+					</div>
+					<!--用一个main_hide控制隐藏  用main_selected控制显示-->
+					<!--男装-->
+					<div class="main main_hide num1">
+						<ul class="cloth_list">
+								<!--通过json实现：floor.js  15行-->
+						</ul>
+						<ul class="cloth_bottom">
+								<!--通过json实现：floor.js  15行-->
+						</ul>
+					</div>
+					<!--女装-->
+					<div class="main main_hide num2">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+						<ul class="cloth_bottom">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+					</div>
+					<!--鞋靴-->
+					<div class="main main_hide num3">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+						<ul class="cloth_bottom">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+					</div>
+					<!--箱包-->
+					<div class="main main_hide num4">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+						<ul class="cloth_bottom">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+					</div>
+					<!--内衣配饰-->
+					<div class="main main_hide num5">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+						<ul class="cloth_bottom">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+					</div>
+					<!--珠宝首饰-->
+					<div class="main main_hide num6">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+						<ul class="cloth_bottom">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+					</div>
+					<!--奢品礼品-->
+					<div class="main main_hide num7">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+						<ul class="cloth_bottom">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+					</div>
+					<!--奢华腕表-->
+					<div class="main main_hide num8">
+						<ul class="cloth_list">
+						<!--通过json实现：floor.js  15行-->
+						</ul>
+						<ul class="cloth_bottom">
+							<!--通过json实现：floor.js  15行-->
+						</ul>
+					</div>			
+				
+				</div>
+			</div>
+			<!--2F美妆-->
+			<div class="beauty">
+				<div class="mt">
+					<h2><i class="icon_stairs">2F</i>个护美妆</h2>
+					<ul class="tab">
+						<li class="tab_li1 list"><a href="#" >热门</a><span class="c_right">◆</span></li>
+						<li class="tab_li2"><a href="#">国际大牌</a><span class="c_right">◆</span></li>
+						<li class="tab_li3"><a href="#">个人护理</a><span  class="c_right">◆</span></li>
+						<li class="tab_li4"><a href="#">清洁用品</a><span  class="c_right">◆</span></li>
+						<li class="tab_li5"><a href="#">纸品湿巾</a><span  class="c_right">◆</span></li>
+						<li class="tab_li6"><a href="#">香水彩妆</a><span class="c_right">◆</span></li>
+						<li class="tab_li7"><a href="#">热销面膜</a><span class="c_right">◆</span></li>
+						<li class="tab_li8"><a href="#">男装精品</a><span class="c_right">◆</span></li>
+						<li class="tab_li9"><a href="#">国妆名品</a><span class="c_right">◆</span></li>
+					</ul>
+				</div>
+				<div class="mc">
+					<!--左侧-->
+					<div class="side">
+						<div class="sideinner">
+							<div class="banner">
+								<a href="#">
+									<img src="img/image/2F个护美妆/左侧固定/1.jpg"/>
+								</a>
+								
+							</div>
+							<ul class="theme">
+								<li class="fore1"><a href="#"><i class="icon"></i><span>美妆特卖</span></a></li>
+								<li class="fore2"><a href="#"><i class="icon"></i><span>个护清洁</span></a></li>
+								<li class="fore3"><a href="#"><i class="icon"></i><span>美妆商城</span></a></li>
+								<li class="fore4"><a href="#"><i class="icon"></i><span>官方直售</span></a></li>
+							</ul>
+							<ul class="assist">
+								<li class="fore1">
+									<a href="#" class="wordsred">出游妆备超低秒杀</a>
+								</li>
+								<li class="fore2">
+									<a href="#" class="wordsred">洁净动力   满199减100></a>
+								</li>
+							</ul>
+							<ul class="words">
+								<li class="fore1">
+									<a href="#" class="wordsred">国际馆</a>
+									<a href="#">面膜馆</a>
+									<a href="#">全球购馆</a>
+									<a href="#">洗护馆</a>
+									<a href="#" class="wordsred">清洁馆</a>
+									<a href="#" >纸品馆</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<!--右侧-->
+					<!--因每个楼层的布局相似 ，同class名-->
+					<!--2f的第一个导航 ：热门-->
+					<div class="main main_selected">
+						<div class="main_inner">
+							<ul class="main_body">
+								<li class="fore1"><a href="#"><img src="img/image/2F个护美妆/热门/右侧1.jpg"/></a></li>
+								<li class="fore2"><a href="#"><img src="img/image/2F个护美妆/热门/右侧2.jpg"/></a></li>
+								<li class="fore3"><a href="#"><img src="img/image/2F个护美妆/热门/右侧3.jpg"/></a></li>
+								<li class="fore4"><a href="#"><img src="img/image/2F个护美妆/热门/右侧4.jpg"/></a></li>
+								<li class="fore5"><a href="#"><img src="img/image/2F个护美妆/热门/右侧5.jpg"/></a></li>
+								<li class="fore6"><a href="#"><img src="img/image/2F个护美妆/热门/右侧6.jpg"/></a></li>
+							</ul>
+							<!--有通用样式-->
+							<div class="carousel">
+								<ul class="carousel_list">
+									<li>
+										<a href="#"><img src="img/image/2F个护美妆/热门/导航1.jpg"/></a>
+										<a href="#"><img src="img/image/2F个护美妆/热门/导航5.jpg"/></a>
+									</li>
+									<li>
+										<a href="#"><img src="img/image/2F个护美妆/热门/导航2.jpg"/></a>
+										<a href="#"><img src="img/image/2F个护美妆/热门/导航6.jpg"/></a>
+									</li>
+									<li>
+										<a href="#"><img src="img/image/2F个护美妆/热门/导航3.jpg"/></a>
+										<a href="#"><img src="img/image/2F个护美妆/热门/导航7.jpg"/></a>
+									</li>
+									<li>
+										<a href="#"><img src="img/image/2F个护美妆/热门/导航4.jpg"/></a>
+										<a href="#"><img src="img/image/2F个护美妆/热门/导航8.jpg"/></a>
+									</li>
+								</ul>
+								<ul class="carousel_num">
+									<li class="active"></li>
+									<li></li>
+									<li></li>
+									<li></li>
+								</ul>
+								<div class="btn left_beauty">&lt;</div>
+								<div class="btn right_beauty">&gt;</div>
+							</div>
+						</div>
+					</div>
+					<!--2f的第二个导航-->
+					<div class="main main_hide num1">
+						<ul class="cloth_list">
+						<!--通过json实现：floor.js  83行-->
+						</ul>
+					</div>
+					<!--2f的第三个导航-->
+					<div class="main main_hide num2">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  83行-->
+						</ul>
+					</div>
+					<!--2f的第四个导航-->
+					<div class="main main_hide num3">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  83行-->
+						</ul>
+					</div>
+					<!--2f的第五个导航-->
+					<div class="main main_hide num4">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  83行-->
+						</ul>
+					</div>
+					<!--2f的第六个导航-->
+					<div class="main main_hide num5">
+						<ul class="cloth_list">
+						<!--通过json实现：floor.js  83行-->
+						</ul>
+					</div>
+					<!--2f的第7个导航-->
+					<div class="main main_hide num6">
+						<ul class="cloth_list">
+						<!--通过json实现：floor.js  83行-->
+						</ul>
+					</div>
+					<!--2f的第8个导航-->
+					<div class="main main_hide num7">
+						<ul class="cloth_list">
+							<!--通过json实现：floor.js  83行-->						
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!--3F-->
+		
+		<!--3F结束-->
+		</div>
+		
+		<!--天天低价-->	
+		<div id="everyday">
+			<div class="dayprice">
+				<div class="mytitle">
+					<h2>天天低价</h2>
+				</div>
+				<div class="mycontent">
+					<ul>
+						<li class="fore1">
+							<div class="day_img">
+								<a href="#"><img src="img/image/dayprice/1.jpg"/></a>
+							</div>
+							<div class="day_price">
+								<div class="day_name">
+									<a href="#">阿美娜2016秋季新款韩版 复古性</a>
+								</div>
+								<div class="day_num"><span>￥100.00</span></div>	
+							</div>
+							
+						</li>
+						<li class="fore2">
+							<div class="day_img">
+								<a href="#"><img src="img/image/dayprice/2.jpg"/></a>
+							</div>
+							<div class="day_price">
+								<div class="day_name">
+									<a href="#">阿美娜2016秋季新款韩版 复古性</a>
+								</div>
+								<div class="day_num"><span>￥100.00</span></div>	
+							</div>
+						</li>
+						<li class="fore3">
+							<div class="day_img">
+								<a href="#"><img src="img/image/dayprice/3.jpg"/></a>
+							</div>
+							<div class="day_price">
+								<div class="day_name">
+									<a href="#">阿美娜2016秋季新款韩版 复古性</a>
+								</div>
+								<div class="day_num"><span>￥100.00</span></div>	
+							</div>
+						</li>
+						<li class="fore4">
+							<div class="day_img">
+								<a href="#"><img src="img/image/dayprice/4.jpg"/></a>
+							</div>
+							<div class="day_price">
+								<div class="day_name">
+									<a href="#">阿美娜2016秋季新款韩版 复古性</a>
+								</div>
+								<div class="day_num"><span>￥100.00</span></div>	
+							</div>
+						</li>
+						<li class="fore5">
+							<div class="day_img">
+								<a href="#"><img src="img/image/dayprice/5.jpg"/></a>
+							</div>
+							<div class="day_price">
+								<div class="day_name">
+									<a href="#">阿美娜2016秋季新款韩版 复古性</a>
+								</div>
+								<div class="day_num"><span>￥100.00</span></div>	
+							</div>
+						</li>
+						<li class="fore6">
+							<div class="day_img">
+								<a href="#"><img src="img/image/dayprice/6.jpg"/></a>
+							</div>
+							<div class="day_price">
+								<div class="day_name">
+									<a href="#">阿美娜2016秋季新款韩版 复古性</a>
+								</div>
+								<div class="day_num"><span>￥100.00</span></div>	
+							</div>
+						</li>
+						<li class="fore7">
+							<div class="day_img">
+								<a href="#"><img src="img/image/dayprice/7.jpg"/></a>
+							</div>
+							<div class="day_price">
+								<div class="day_name">
+									<a href="#">阿美娜2016秋季新款韩版 复古性</a>
+								</div>
+								<div class="day_num"><span>￥100.00</span></div>	
+							</div>
+						</li>
+					</ul>
+				</div>
+			</div>
+			<!--热门晒单-->
+			<div class="hotmes">
+				<div class="mytitle">
+					<h2>热门晒单</h2>
+				</div>
+				<!--轮播图-->
+				<div class="lunbo">
+					<ul>
+						<li class="fore1">
+							<div class="hot_img"><img src="img/image/hot/1.jpg"/></div>
+							<div class="hot_name"><a href="#">老***王</a></div>
+							<div class="hot_word"><a href="#">很棒。哎呀，烦死了</a></div>
+						</li>
+						<li class="fore2">
+							<div class="hot_img"><img src="img/image/hot/2.jpg"/></div>
+							<div class="hot_name">***老板</div>
+							<div class="hot_word">很棒</div>
+						</li>
+						<li class="fore3">
+							<div class="hot_img"><img src="img/image/hot/3.jpg"/></div>
+							<div class="hot_name">梁**老板</div>
+							<div class="hot_word">很棒</div>
+						</li>
+						<li class="fore4">
+							<div class="hot_img"><img src="img/image/hot/4.jpg"/></div>
+							<div class="hot_name">向**</div>
+							<div class="hot_word">很棒</div>
+						</li>
+						<li class="fore5">
+							<div class="hot_img"><img src="img/image/hot/5.jpg"/></div>
+							<div class="hot_name">周**老板</div>
+							<div class="hot_word">很棒</div>
+						</li>
+					</ul>
+				</div>
+				
+			</div>
+		</div>	
+		<!--footer-->
+		<div id="indexfoot">
+			<!--通过load方法分离footer.html-->
+		</div>
+		<!--楼梯-->
+		<div class="louti">
+				<ul id="stair">
+					<li>1F<span>服饰</span></li>
+					<li>2F<span>美妆</span></li>
+					<li>3F<span>手机</span></li>
+					<li>4F<span>家电</span></li>
+					<li>5F<span>数码</span></li>
+					<li>6F<span>运动</span></li>
+					<li>7F<span>居家</span></li>
+					<li>8F<span>母婴</span></li>
+					<li>9F<span>食品</span></li>
+					<li>10F<span>图书</span></li>
+					<li>11F<span>服务</span></li>
+					<li class="last">Top</li>
+				</ul>
+		</div>
+		<!--右侧购物车-->
+		<div id="shopCar">
+			<div class="contain">
+					<div class="car_open">
+						<div class="car_content">
+							<p>
+								<span class="close">关闭 X</span>
+								</p>
+						</div>
+						<ul class="car_tab">
+							<li class="jd_vip">
+								<i class="icon vip_icon"></i>
+								<b class="vip_word word">京东会员</b>
+							</li>
+							<li class="car">
+								<i class="icon car_icon"></i>
+								<b class="car_word word">购物车</b>
+							</li>
+							<li class="heart">
+								<i class="icon heart_icon"></i>
+								<b class="word heart_word">我的关注</b>
+							</li>
+							<li class="myjiao">
+								<i class="icon jiao_icon"></i>
+								<b class="word jiao_word">我的足迹</b>
+							</li>
+							<li class="toTop">
+								<i class="icon top_icon"></i>
+								<b class="word top_word">回到顶部</b>
+							</li>
+							<li class="idea">
+								<i class="icon idea_icon"></i>
+								<b class="word idea_word">反馈</b>
+							</li>
+						</div>
+					</div>
+							
+			</div>
+		</div>
+	</body>
+</html>

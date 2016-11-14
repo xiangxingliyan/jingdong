@@ -1,0 +1,37 @@
+#stair{
+	border: 1px #CCC solid;
+	background: #FFF;
+	border-bottom: none;
+	position: fixed;
+	left: -3px;
+	top: 50%;
+	margin-top: -198px;
+	z-index: 50;
+	display: none;
+}
+#stair > li{
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	line-height: 32px;
+	border-bottom: 1px #CCC solid;
+	position: relative;
+	cursor: pointer;
+}
+#stair > .last{
+	background: #F00;
+	color: #FFF;
+}
+#stair > li > span{
+	display: block;
+	width: 32px;
+	height: 32px;
+	text-align: center;
+	line-height: 32px;
+	background: #C00;
+	color: #FFF;
+	position: absolute;
+	top: 0;
+	left: 0;
+	display: none;
+}

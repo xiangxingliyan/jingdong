@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<!--
+        	作者：1028997332@qq.com
+        	时间：2016-09-29
+        	描述：
+        	一、使用load方法导入header.html和footer.html时，注意：
+        		1、在body下创建一个容器，<div id="shopcarheader"></div>
+        		2、要记得导入jq类库和css样式，公共样式等有关联的样式
+        		3、需要写才能导入js文件：var script = document.createElement('script');
+						script.src = "js/header.js";
+						$('body').append(script);	
+        -->
+		<link rel="stylesheet" type="text/css" href="css/base.css"/>
+		<link rel="stylesheet" type="text/css" href="css/header.css"/>
+		<link rel="stylesheet" type="text/css" href="css/footer.css"/>
+		
+		<link rel="stylesheet" type="text/css" href="css/shopcarHtml.css"/>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.cookie.js" type="text/javascript" charset="utf-8"></script>
+		
+		<!--cookies-->
+		<script src="js/shopcookie.js" type="text/javascript" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+			$(function(){
+				$('#shopcarheader').load("header.html",function(res,status){
+					console.log(status);
+					//需要写这句话才能导入js文件
+						var script = document.createElement('script');
+						script.src = "js/header.js";
+						$('body').append(script);
+					});
+			})			
+		</script>
+		<script type="text/javascript">
+			$(function(){
+				$('#shopcarfooter').load("footer.html",function(res,status){
+				console.log(status);
+				//需要写这句话才能导入js文件
+					var script = document.createElement('script');
+					script.src = "js/footer.js";
+					$('body').append(script);
+				});
+			})
+		</script>
+		
+	</head>
+	<body>
+		<div id="shopcarheader">
+			<!--通过load导入分离的html-->
+		</div>
+		<div class="shopCar_body">
+			<ul class="shop_list">
+				<h1>我的购物车</h1>
+			</ul>
+		</div>
+		<div id="shopcarfooter">
+			<!--通过load导入分离的html-->
+		</div>
+	</body>
+</html>

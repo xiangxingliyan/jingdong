@@ -1,0 +1,200 @@
+.banner{
+	width: 1263px;
+	height: 466px;
+	position: relative;
+	z-index: 1;
+	background: url(../img/image/bg_color.png) no-repeat center top;
+}
+.imglist{
+	position: absolute;
+	z-index: 10;
+	width: 730px;
+	height: 466px;
+	left: 241px;
+	top: 10px;
+
+}
+.imglist img.on{
+	display: block;
+}
+.imglist img{
+	display: none;
+}
+.imglist img{
+	position: absolute;
+}
+.imglist a.red{
+	color:white;
+	background: #a10000;
+}
+.imglist .banner_num{
+	width: 100%;
+	text-align: center;
+	position: absolute;
+	bottom: 30px ;
+}
+.imglist .banner_num li{
+	display: inline-block;
+	margin: 0 3px;
+	width: 20px;
+	height: 20px;
+	line-height: 20px;
+	background: #3e3e3e;
+	color: white;
+	border-radius: 50%;
+}
+.imglist .banner_num li.active{
+	background: red;
+	cursor: pointer;
+}
+.imglist .btn{
+	background: rgba(0,0,0,0.3);
+	width: 30px;
+	height: 50px;
+	position: absolute;
+	z-index: 100;
+	top:50%;
+	margin-top: -25px;
+	text-align: center;
+	line-height: 50px;
+	color: #fff;
+	font-size: 16px;
+	cursor: pointer;
+	display: none;
+}
+.banner .leftBtn{
+	left: 10px;
+	cursor: pointer;
+}
+.banner .rightBtn{
+	right: 10px;
+}
+.banner .w{
+	width: 1210px;
+	margin: 0 auto;
+	position: relative;
+}
+.banner .w .jd_news{
+	width: 248px;
+	height: 163px;
+	position: absolute;
+	right: 0;
+	border: 1px solid #ddd;
+}
+.jd_news a:hover{
+	color: #CC0000;
+}
+.jd_news .mt{
+	height: 32px;
+	line-height: 32px;
+	padding: 0 15px;
+	border-bottom: 1px dotted #ddd;
+}
+.jd_news .mt h2{
+	float: left;
+	font-weight: 400;
+	font-size: 16px;
+	font-family: "微软雅黑";
+}
+.jd_news .mt .more{
+	float: right;
+}
+.jd_news .mc{
+	height: 120px;
+	padding: 8px 0 0 15px;
+}
+.jd_news .mc ul li{
+	height: 24px;
+	line-height: 24px;
+}
+.jd_news .mc ul li span{
+	margin-right: 5px;
+}
+.banner .w .life{
+    width: 248px;
+    position: relative;
+
+}
+.life .life_list{
+	height: 214px;
+	position: relative;
+}
+.life .life_list ul{
+	position: relative;
+	top: 3px;
+    width: 252px;
+    height: 209px;
+    overflow: hidden;
+    border: 1px solid #E8E8E7;
+    border-top: none;
+    border-right: none;
+}
+.life .life_list ul li{
+	float: left;
+    display: inline;
+    width: 60px;
+    height: 70px;
+    border-right: 1px solid #E8E8E7;
+    border-bottom: 1px solid #E8E8E7;
+    overflow: hidden;
+    position: relative;
+}
+.life .life_list li a{
+	display: block;
+    width: 62px;
+    height: 28px;
+    padding-top: 40px;
+    line-height: 28px;
+    text-align: center;
+	}
+.life .life_list ul li i {
+	display: block;
+	position: absolute;
+	top: 13px;
+    left: 18px;
+    width: 25px;
+    height: 25px;
+    
+}
+.life .life_list ul .life1 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 0px no-repeat;	
+}
+.life .life_list ul .life2 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -25px no-repeat;	
+}
+.life .life_list ul .life3 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -50px no-repeat;	
+}
+.life .life_list ul .life4 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -75px no-repeat;	
+}
+.life .life_list ul .life5 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -100px no-repeat;	
+}
+.life .life_list ul .life6 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -125px no-repeat;	
+}
+.life .life_list ul .life7 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -150px no-repeat;	
+}
+.life .life_list ul .life8 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -175px no-repeat;	
+}
+.life .life_list ul .life9 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -200px no-repeat;	
+}
+.life .life_list ul .life10 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -225px no-repeat;	
+}
+.life .life_list ul .life11 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -250px no-repeat;	
+}
+.life .life_list ul .life12 i {
+	background: url(../img/image/页面右侧小图标/话费.png) 0 -275px no-repeat;	
+}
+.life_bottom_ad{
+	position: absolute;
+	width: 250px;
+	height: 75px;
+	padding-top: 13px;
+}

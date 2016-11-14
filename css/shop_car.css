@@ -1,0 +1,124 @@
+#shopCar{
+
+}
+#shopCar .contain{
+	position: fixed;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    height: 100%;
+    background: #7a6e6e;
+}
+#shopCar .contain .car_open{
+	right: 0px;
+	position: absolute;
+    top: 0;
+    width: 0;
+    height: 100%;
+    border-right: 6px solid #7a6e6e;
+}
+.contain .car_open .car_content{
+	position: absolute;
+    left: 6px;
+    top: 0;
+    width: 270px;
+    height: 100%;
+    z-index: 2;
+    background: #eceaea;
+	}
+.car_open .car_tab{
+	position: absolute;
+    top: 50%;
+    left: -29px;
+    width: 35px;
+    margin-top: -70px;
+    background: #7a6e6e;
+}
+/*给每个li相对定位，他后面的word就能相对于各个div进行定位*/
+.car_open .car_tab li{
+	position: relative;
+}
+
+/*图标和字的公共样式*/
+.car_open .car_tab .icon{
+	display: inline-block;
+	width: 35px;
+    height: 30px;
+    border-radius: 5px;
+    position: relative;
+    z-index: 2;
+	}
+.car_open .car_tab .word{
+	position: absolute;	
+	left: -60px;
+	top: 0;
+	width: 60px;
+    height: 35px;
+    line-height: 35px;
+    color: #fff;
+    text-align: center;
+    background: #7a6e6e;
+    border-radius: 3px;
+    display: none;
+}
+/*控制图标*/
+.car_open .car_tab .vip_icon{
+	background: url(../img/image/购物车/body右购物车.png) -88px -175px no-repeat;
+}
+.car_open .car_tab .car_icon{
+	background: url(../img/image/购物车/body右购物车.png) -50px 0 no-repeat;
+}
+.car_open .car_tab .heart_icon{
+	background: url(../img/image/购物车/body右购物车.png) -50px -50px no-repeat;
+}
+.car_open .car_tab .jiao_icon{
+	background: url(../img/image/购物车/body右购物车.png) -50px -100px no-repeat;
+}
+.car_open .car_tab .top_icon{
+	background: url(../img/image/购物车/body右购物车.png) -50px -250px no-repeat;
+}
+.car_open .car_tab .idea_icon{
+	background: url(../img/image/购物车/body右购物车.png) -50px -300px no-repeat;
+}
+/*控制弹出的字的位置   每次给他的top增加35px  就是div图标的宽度   太繁琐 */
+
+/*.car_open .car_tab .car_word{
+	top: 35px;
+}
+.car_open .car_tab .heart_word{
+	top: 70px;
+}
+.car_open .car_tab .jiao_word{
+	top: 105px;
+}
+.car_open .car_tab .top_word{
+	top: 140px;
+}
+.car_open .car_tab .idea_word{
+	top: 175px;
+}*/
+
+/*购物车的关闭按钮*/
+.car_open .car_content p{
+	text-align: right;
+}
+.car_open .car_content p .close{
+	cursor: pointer;
+
+}
+/*京东会员弹窗*/
+ .popover{
+	width: 406px;
+	height: 403px;
+	border: 1px solid #ddd;
+	position: absolute;
+	z-index: 100;
+	background: url(../img/image/京东会员.png) 0 0 no-repeat;
+}
+
+/*cookies创建的删除按钮的样式*/
+.removeCar{
+	display: inline-block;
+	background: #FF0000;
+	color: #fff ;
+}

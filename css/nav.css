@@ -1,0 +1,168 @@
+#nav{
+	width: 1263px;
+	height: 46px;
+	position: relative;
+	z-index: 11;
+	border-bottom: 2px solid #B1191A;
+}
+#nav a:hover{
+	color: #FF0000;
+}
+#nav .nav_main{
+	width: 1210px;
+	height: 46px;
+	margin: 0 auto;
+	position: relative;
+	
+}
+.nav_main .classify{
+	width: 210px;
+	float: left;
+	
+}
+.nav_main .classify .allshop{
+	width: 210px;
+	height: 46px;
+	background: #B1191A;
+}
+.nav_main .classify .allshop a{
+	display: block;
+	padding: 10px 10px 0 10px;
+	width: 200px;
+	height: 36px;
+	color: #fff;
+	line-height: 46px;
+	font:16px "微软雅黑";
+}
+.nav_main .category{
+	height: 466px;
+    background: #c81623;
+   	position: relative;
+   	z-index: 2;
+    
+}
+.category_list li{
+	border-left: 1px solid #cc0000;
+	height: 31px;
+	line-height: 30px;
+}
+
+.category_list > h3{
+	position: absolute;
+	width: 200px;
+}
+.category_list  h3 a{
+	padding-left:10px;
+	font: 14px "微软雅黑";
+	color: #fff;
+}
+
+.category_list li .list_right{
+	float: right;
+	margin-right: 15px;
+    color: #fff;
+    width: 4px;
+    height: 14px;
+}
+
+.classify .electric{
+	width: 979px;
+	position: absolute;
+	
+	
+	
+	
+	
+	
+	top:0px;
+	left: 209px;
+	padding-left: 20px;
+	border: 1px solid #cc0000;
+	border-top: none;
+	border-left: none;
+	overflow: hidden;
+	display: none;	
+	background: #fff;
+}
+.classify .list1 .electric a:hover{
+	color: #CC0000;
+}
+
+/*第一排*/
+.electric  .ele1{
+	padding: 20px 0;
+}
+.electric  .ele1 a{
+	float: left;
+    display: inline-block;
+    padding: 0 0 0 8px;
+    margin-right: 10px;
+    line-height: 24px;
+    background: #7C7171;
+    color: #fff;
+}
+
+.electric .ele1 i{
+	 display: inline-block;
+    margin-left: 8px;
+    width: 23px;
+    height: 24px;
+    background: #5c5251;
+    text-align: center;
+}
+.electric .ele2{
+	width: 100%;
+	overflow: hidden;
+}
+.ele2 dt{
+	position: relative;
+    float: left;
+    width: 54px;
+    padding: 8px 30px 0 0;
+    text-align: right;
+    font-weight: 700;
+}
+.ele2 dd{
+	float: left;
+	padding: 6px 0;
+	width: 620px;
+}
+.ele2 dd a{
+	float: left;
+    padding: 0 8px;
+    margin: 4px 0;
+    line-height: 16px;
+    height: 16px;
+    border-left: 1px solid #e0e0e0;
+}
+.electric .adright{
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 170px;
+	height: 100%;
+}
+.electric .adright img{
+	margin: 1px;
+	float: left;
+}
+.nav_right .nav_right_list{
+	float: left;
+	position: relative;
+}
+.nav_right .nav_right_list li{
+	float: left;
+	line-height: 46px;
+}
+.nav_right .nav_right_list li a{
+	height: 44px;
+    padding: 0 20px;
+    text-align: center;
+    font-family: "微软雅黑";
+    font-size: 16px;
+}
+.nav_right .nav_right_list li a:hover{
+	color: #CC0000;
+}
+
+
